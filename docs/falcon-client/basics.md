@@ -23,7 +23,6 @@ yarn add @deity/falcon-client
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-
 ## Quick Start
 
 Use the project generator:
@@ -158,18 +157,6 @@ To add Google Analytics to your Falcon application you need to configure it in y
 
 ```json
 {
-  "__typename": "ClientConfig",
-  "appName": "deity-website",
-  "port": 3000,
-  "serverSideRendering": true,
-  "graphqlUrl": "http://localhost:4000/graphql",
-  "apolloClient": {
-    "__typename": "ApolloClientConfig",
-    "httpLink": {
-      "__typename": "ApolloClientConfigHttp",
-      "uri": "/graphql"
-    }
-  },
   "googleAnalytics": {
     "__typename": "ConfigGoogleAnalytics",
     "trackerID": "<Your Google Analytics Code>"
@@ -237,17 +224,17 @@ However, css modules convention is also supported [see the details](https://gith
 example unit test with `FalconClientMock` :
 
 ```jsx
-import { FalconClientMock } from '@deity/falcon-client/test-utils';
+import { FalconClientMock } from "@deity/falcon-client/test-utils";
 
-describe('<Component />', () => {
-  test('renders without exploding', () => {
+describe("<Component />", () => {
+  test("renders without exploding", () => {
     ReactDOM.render(
       <FalconClientMock>
         {
           // your <Component />
         }
       </FalconClientMock>,
-      document.createElement('div')
+      document.createElement("div")
     );
   });
 });
