@@ -11,7 +11,7 @@ Application needs to have `index.js` file, and the following optional configurat
 This is an application entry point which needs to export valid React element `React.ReactElement<any>` as default:
 
 ```js
-import App from './src/App';
+import App from "./src/App";
 
 export default App;
 ```
@@ -19,7 +19,7 @@ export default App;
 In order to use your custom Apollo Schema you need to export it via `clientApolloSchema`:
 
 ```js
-import clientApolloSchema from './src/clientState';
+import clientApolloSchema from "./src/clientState";
 
 export { clientApolloSchema };
 ```
@@ -31,9 +31,9 @@ For more information see [this](falcon-client/state-management.md)
 This is an optional runtime configuration file.
 
 ```js
-const config = require('config');
+const config = require("config");
 
-export default async() => ({
+export default async () => ({
   config: { ...config },
   onServerCreated: server => {},
   onServerInitialized: server => {},
@@ -50,9 +50,9 @@ This is configuration object used to setup `@deity/falcon-client`
 - `port: number` - (default: `3000`) port number that client should be running on
 - `logLevel: string` - (default: `'error'`) [@deity/falcon-logger](https://github.com/deity-io/falcon/tree/master/packages/falcon-logger) logger level
 - `serverSideRendering: boolean` - (default `true`) switch to control whether the [SSR](/docs/falcon-client/basics#server-side-rendering) is enabled
-- `googleTagManager: object` - Google Tag Manager configuration, [see the details](/docs/falcon-client/basics#google-tag-manager)
+- `googleTagManager: object` - Google Tag Manager configuration, [see the details](/docs/falcon-client/analytics#google-tag-manager)
 - `googleAnalytics: object`
-  - `trackerID` - Google Analytics tracking code
+  - `trackerID` - Google Analytics tracking code [see the details](/docs/falcon-client/analytics#google-analytics)
 - `i18n: object` - internationalization configuration, [see the details](/docs/falcon-client/internationalization)
 - `menus: object` - menus configuration [TODO]
 - `graphqlUrl: string` - (default: `http://localhost:4000/graphql`) the real GraphQL URL to be proxied by Falcon-Client under `apolloClient.httpLink.uri` path. If you set this key with a falsy value - no proxying will be performed
@@ -144,7 +144,7 @@ For example, bellow configuration expose environment variable named `SECRET_CODE
 
 ```js
 module.exports = {
-  envToBuildIn: ['SECRET_CODE']
+  envToBuildIn: ["SECRET_CODE"]
 };
 ```
 
@@ -156,7 +156,7 @@ To use Falcon Client (or Razzle) plugin, you need to install it in your project,
 
 ```js
 module.exports = {
-  plugins: ['plugin-name']
+  plugins: ["plugin-name"]
 };
 ```
 
@@ -171,10 +171,10 @@ Plugins are simply functions that modify and return Falcon Client's webpack conf
 module.exports = function myFalconClientPlugin(config, env, webpack) {
   const { target, dev } = env;
 
-  if (target === 'web') {
+  if (target === "web") {
     // client only
   }
-  if (target === 'server') {
+  if (target === "server") {
     // server only
   }
   if (dev) {
@@ -237,7 +237,7 @@ Falcon Client gives you Ecma Script 6 compiled via Babel 7. However, if you want
 ```json
 {
   "presets": [
-    "@deity/babel-preset-falcon-client", // needed
+    "@deity/babel-preset-falcon-client" // needed
   ],
   "plugins": [
     // additional plugins
@@ -268,7 +268,6 @@ build/*
 coverage/*
 ```
 
-
 ### Jest
 
 Falcon Client comes with configured [Jest](https://jestjs.io/) test runner. However it is possible to override it by adding `jest` node into `package.json`. Below example configures `setupTestFrameworkScriptFile` file:
@@ -276,8 +275,8 @@ Falcon Client comes with configured [Jest](https://jestjs.io/) test runner. Howe
 ```json
 // package.json
 {
- "jest": {
-   "setupTestFrameworkScriptFile": "./setupTests.js"
- }
+  "jest": {
+    "setupTestFrameworkScriptFile": "./setupTests.js"
+  }
 }
 ```
