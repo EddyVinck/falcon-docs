@@ -15,7 +15,6 @@ To add Google Analytics to your Falcon application you need to configure it in y
 }
 ```
 
-Then you need to add the following code to your `App.js`:
 
 Then you need to add the following code to your `App.js`:
 
