@@ -12,6 +12,7 @@
       "falcon-client/configurations",
       "falcon-client/code-splitting",
       "falcon-client/state-management",
+      "falcon-client/analytics",
       "falcon-client/internationalization",
       "falcon-client/falcon-ui",
       "falcon-client/search-and-filtering"
