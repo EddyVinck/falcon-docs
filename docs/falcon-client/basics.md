@@ -154,7 +154,42 @@ For more examples see [this](https://github.com/nfl/react-helmet#reference-guide
 
 ### Google Analytics
 
-[TODO]
+To add Google Analytics to your Falcon application you need to configure it in your `client/config/default.json`:
+
+```json
+{
+  "__typename": "ClientConfig",
+  "appName": "deity-website",
+  "port": 3000,
+  "serverSideRendering": true,
+  "graphqlUrl": "http://localhost:4000/graphql",
+  "apolloClient": {
+    "__typename": "ApolloClientConfig",
+    "httpLink": {
+      "__typename": "ApolloClientConfigHttp",
+      "uri": "/graphql"
+    }
+  },
+  "googleAnalytics": {
+    "__typename": "ConfigGoogleAnalytics",
+    "trackerID": "<Your Google Analytics Code>"
+  }
+}
+```
+
+Then you need to add the following code to your `App.js`:
+
+```jsx
+import withPageview from "@deity/falcon-client/src/components/withPageview";
+
+const App = () => (
+  ...
+);
+
+export default withPageview(App);
+```
+
+That's it! No further configuration necessary in Falcon or Google Analytics.
 
 ### Google Tag Manager
 
@@ -195,9 +230,8 @@ However, css modules convention is also supported [see the details](https://gith
 `falcon-client` exposes `FalconClientMock` component which allows you to setup application context inside unit test environment.
 `FalconClientMock` can receive props for mock version of React context provider components used by `falcon-client` internally:
 
-- `apollo: object` - props for `MockProvider` component from `react-apollo`
-- `router: object` props for `MemoryRouter` component from `react-router-dom`
-- `asyncComponent: object` - props for `AsyncComponentProvider` component from `react-async-component`
+- `apollo: object` - props for [`MockedProvider`](https://www.apollographql.com/docs/react/development-testing/testing/#mockedprovider) component from `react-apollo`.
+- `router: object` props for [`MemoryRouter`](https://reacttraining.com/react-router/web/api/MemoryRouter) component from `react-router-dom`
 - `i18next: object` - props for `I18nextProvider` component from `react-i18next`
 
 example unit test with `FalconClientMock` :
