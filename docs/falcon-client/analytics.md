@@ -45,6 +45,7 @@ you can configure Google Tag Manager via `config` property in `config/default.js
 ```json
 {
   "googleTagManager": {
+    "__typename": "ConfigGoogleTagManager",
     "id": "id"
   }
 }
