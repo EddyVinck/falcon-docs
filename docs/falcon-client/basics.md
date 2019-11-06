@@ -132,7 +132,7 @@ To make your shop SEO-friendly, following mechanisms are involved out of the box
 
 ### Server Side Rendering
 
-SSR take place when a website is first opened. All operations are carried out on the server and the browser gets an HTML with all information, same as with typical websites with static pages which search engines can index. After JavaScript is loaded the web turns into a "single page app" and works respectively.
+SSR take place when a website is tfirst opened. All operations are carried out on the server and the browser gets an HTML with all information, same as with typical websites with static pages which search engines can index. After JavaScript is loaded the web turns into a "single page app" and works respectively.
 
 ### Dynamic meta description
 
@@ -178,6 +178,8 @@ export default withPageview(App);
 
 That's it! No further configuration necessary in Falcon or Google Analytics.
 
+[Read more](falcon-client/analytics.md#advanced-google-analytics-usage) about advanced Google Analytics usage.
+
 ### Google Tag Manager
 
 [See more](https://marketingplatform.google.com/about/tag-manager/)
@@ -197,6 +199,8 @@ you can configure Google Tag Manager via `config` property in `config/default.js
   }
 }
 ```
+
+This is all you need to do to add Google Tag Manager to your Falcon project. Falcon-Client will handle the rest automatically.
 
 ## Development
 
